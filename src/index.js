@@ -1,7 +1,9 @@
 import "./css/style.css";
 import { generateWeatherPage } from "./dom";
+import { addListenerToSearchButton } from "./search-box";
 
-fetchWeatherData("Sydney");
+fetchWeatherData("London");
+addListenerToSearchButton();
 
 async function fetchWeatherData(location) {
   try {
@@ -13,22 +15,23 @@ async function fetchWeatherData(location) {
 
     const fullWeatherData = await fetchedCurrentWeatherData.json();
     console.log(await fullWeatherData);
-    const importantWeatherData = await storeImportantWeatherData(
-      fullWeatherData
-    );
-    console.log(await importantWeatherData);
-    await generateWeatherPage(importantWeatherData);
+    const locationWeatherData = await storeLocationWeatherData(fullWeatherData);
+    console.log(await locationWeatherData);
+    //Generate the page
+    await generateWeatherPage(locationWeatherData);
   } catch (error) {
     console.log(`There is an error: ${error}`);
   }
 }
 
-function storeImportantWeatherData(fullWeatherData) {
-  const importantWeatherData = {
+function storeLocationWeatherData(fullWeatherData) {
+  const locationWeatherData = {
     city: fullWeatherData.name,
     country: fullWeatherData.sys.country,
     currentTemp: fullWeatherData.main.temp.toFixed(0),
     currentWeather: fullWeatherData.weather[0].main,
   };
-  return importantWeatherData;
+  return locationWeatherData;
 }
+
+export { fetchWeatherData };

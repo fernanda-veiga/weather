@@ -5,16 +5,16 @@ const tempContainer = document.querySelector(".location-weather-temp");
 const placeContainer = document.querySelector(".location-weather-place");
 const weatherContainer = document.querySelector(".location-weather-type");
 
-function generateWeatherPage(importantWeatherData) {
-  generateLocationSection(importantWeatherData);
+function generateWeatherPage(locationWeatherData) {
+  generateLocationSection(locationWeatherData);
   //generateInfoSection(importantWeatherData);
 }
 
-function generateLocationSection(importantWeatherData) {
-  weatherIcon.src = generateWeatherIcon(importantWeatherData.currentWeather);
-  tempContainer.textContent = `${importantWeatherData.currentTemp}°C`;
-  placeContainer.textContent = `${importantWeatherData.city}, ${importantWeatherData.country}`;
-  weatherContainer.textContent = `${importantWeatherData.currentWeather}`;
+function generateLocationSection(locationWeatherData) {
+  weatherIcon.src = generateWeatherIcon(locationWeatherData.currentWeather);
+  tempContainer.textContent = `${locationWeatherData.currentTemp}°C`;
+  placeContainer.textContent = `${locationWeatherData.city}, ${locationWeatherData.country}`;
+  weatherContainer.textContent = `${locationWeatherData.currentWeather}`;
 }
 
 /*function generateInfoSection(importantWeatherData) {
