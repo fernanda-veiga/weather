@@ -1,4 +1,4 @@
-import sunnyIcon from "./icons/sunny.svg";
+import { generateWeatherIcon } from "./icon";
 
 const weatherIcon = document.querySelector(".location-weather-icon");
 const tempContainer = document.querySelector(".location-weather-temp");
@@ -11,7 +11,7 @@ function generateWeatherPage(importantWeatherData) {
 }
 
 function generateLocationSection(importantWeatherData) {
-  weatherIcon.src = sunnyIcon;
+  weatherIcon.src = generateWeatherIcon(importantWeatherData.currentWeather);
   tempContainer.textContent = `${importantWeatherData.currentTemp}°C`;
   placeContainer.textContent = `${importantWeatherData.city}, ${importantWeatherData.country}`;
   weatherContainer.textContent = `${importantWeatherData.currentWeather}`;

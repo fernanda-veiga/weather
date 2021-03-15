@@ -11,3 +11,27 @@ import iconSmoke from "./icons/smoke.svg";
 import iconSnow from "./icons/snow.svg";
 import iconSquallAndTornado from "./icons/squall-tornado.svg";
 import iconThunderstorm from "./icons/thunderstorm.svg";
+
+const weatherIconObject = {
+  Ash: iconAsh,
+  Clear: iconClearDay,
+  Clouds: iconClouds,
+  Drizzle: iconDrizzle,
+  Dust: iconDustAndSand,
+  Sand: iconDustAndSand,
+  Haze: iconHazeAndFog,
+  Fog: iconHazeAndFog,
+  Mist: iconMist,
+  Rain: iconRain,
+  Smoke: iconSmoke,
+  Snow: iconSnow,
+  Squall: iconSquallAndTornado,
+  Tornado: iconSquallAndTornado,
+  Thunderstorm: iconThunderstorm,
+};
+
+function generateWeatherIcon(currentWeather) {
+  return weatherIconObject[currentWeather];
+}
+
+export { generateWeatherIcon };
