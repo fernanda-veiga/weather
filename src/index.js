@@ -1,27 +1,34 @@
 import "./style.css";
+import { generateWeatherPage } from "./dom";
 
-let currentWeatherData;
-//let forecastWeatherData;
 fetchWeatherData("Sydney");
 
 async function fetchWeatherData(location) {
   try {
     const API_KEY = "d3bb1e3bed4381c130b23c941a594404";
     const fetchedCurrentWeatherData = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${API_KEY}`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${API_KEY}&units=metric`,
       { mode: "cors" }
     );
-    currentWeatherData = await fetchedCurrentWeatherData.json();
 
-    /*const fetchedForecastWeatherData = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${API_KEY}`,
-      { mode: "cors" }
+    const fullWeatherData = await fetchedCurrentWeatherData.json();
+    console.log(await fullWeatherData);
+    const importantWeatherData = await storeImportantWeatherData(
+      fullWeatherData
     );
-    forecastWeatherData = await fetchedForecastWeatherData.json();*/
+    console.log(await importantWeatherData);
+    await generateWeatherPage(importantWeatherData);
   } catch (error) {
     console.log(`There is an error: ${error}`);
   }
 }
 
-console.log(currentWeatherData);
-//console.log(forecastWeatherData);
+function storeImportantWeatherData(fullWeatherData) {
+  console.log("six");
+  const importantWeatherData = {
+    city: fullWeatherData.name,
+    currentTemp: fullWeatherData.main.temp,
+    currentWeather: fullWeatherData.weather[0].main,
+  };
+  return importantWeatherData;
+}

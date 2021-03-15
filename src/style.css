@@ -12,12 +12,16 @@ body {
 }
 
 .location {
-  background-color: aqua;
-  flex: 1 1 70%;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 212, 255, 1) 0%,
+    rgba(107, 223, 226, 1) 50%,
+    rgba(250, 254, 85, 1) 100%
+  );
+  flex: 1 1 40%;
 }
 
 .info {
-  background-color: blue;
-  flex: 1 1 30%;
-  min-width: 400px;
+  background-color: rgba(255, 255, 255, 1);
+  flex: 1 1 60%;
 }
