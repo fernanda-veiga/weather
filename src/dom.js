@@ -1,26 +1,27 @@
+import sunnyIcon from "./icons/sunny.svg";
+
+const weatherIcon = document.querySelector(".location-weather-icon");
+const tempContainer = document.querySelector(".location-temperature");
+const cityContainer = document.querySelector(".location-name");
+const weatherContainer = document.querySelector(".location-weather");
+
 function generateWeatherPage(importantWeatherData) {
   generateLocationSection(importantWeatherData);
-  generateInfoSection(importantWeatherData);
+  //generateInfoSection(importantWeatherData);
 }
 
 function generateLocationSection(importantWeatherData) {
-  const body = document.querySelector("body");
-  const locationSection = document.createElement("section");
-  locationSection.classList.add("location");
-  const locationInfoContainer = document.createElement("div");
-  locationInfoContainer.textContent = `${importantWeatherData.city}
-  ${importantWeatherData.currentTemp}
-  ${importantWeatherData.currentWeather}`;
-  //Append children
-  locationSection.appendChild(locationInfoContainer);
-  body.appendChild(locationSection);
+  weatherIcon.src = sunnyIcon;
+  tempContainer.textContent = `${importantWeatherData.currentTemp}°C`;
+  cityContainer = `${importantWeatherData.city}`;
+  weatherContainer = `${importantWeatherData.currentWeather}`;
 }
 
-function generateInfoSection(importantWeatherData) {
+/*function generateInfoSection(importantWeatherData) {
   const body = document.querySelector("body");
   const infoSection = document.createElement("section");
   infoSection.classList.add("info");
   body.appendChild(infoSection);
-}
+}*/
 
 export { generateWeatherPage };

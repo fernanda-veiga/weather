@@ -21,7 +21,7 @@ body {
   flex: 1 1 40%;
 }
 
-.info {
+.forecast {
   background-color: rgba(255, 255, 255, 1);
   flex: 1 1 60%;
 }

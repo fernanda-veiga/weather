@@ -1,4 +1,4 @@
-import "./style.css";
+import "./css/style.css";
 import { generateWeatherPage } from "./dom";
 
 fetchWeatherData("Sydney");
@@ -24,7 +24,6 @@ async function fetchWeatherData(location) {
 }
 
 function storeImportantWeatherData(fullWeatherData) {
-  console.log("six");
   const importantWeatherData = {
     city: fullWeatherData.name,
     currentTemp: fullWeatherData.main.temp,
