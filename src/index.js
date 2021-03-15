@@ -26,7 +26,8 @@ async function fetchWeatherData(location) {
 function storeImportantWeatherData(fullWeatherData) {
   const importantWeatherData = {
     city: fullWeatherData.name,
-    currentTemp: fullWeatherData.main.temp,
+    country: fullWeatherData.sys.country,
+    currentTemp: fullWeatherData.main.temp.toFixed(0),
     currentWeather: fullWeatherData.weather[0].main,
   };
   return importantWeatherData;

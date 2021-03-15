@@ -12,6 +12,7 @@ body {
 }
 
 .location {
+  padding: 20px;
   background: linear-gradient(
     0deg,
     rgba(0, 212, 255, 1) 0%,
@@ -19,7 +20,110 @@ body {
     rgba(250, 254, 85, 1) 100%
   );
   flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*gap: 20px;*/
 }
+
+/*Search box*/
+.location-search-container {
+  width: 100%;
+  flex: 1 1 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.location-search {
+  width: 50%;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 2em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.location-search input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: gray;
+}
+.location-search button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: gray;
+  transition: color 0.3s ease-in;
+}
+.location-search button:hover {
+  color: black;
+}
+
+/*Location Weather Content*/
+.location-weather {
+  width: 100%;
+  padding: 20px;
+  flex: 1 1 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.location-weather > * {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.location-weather p {
+  font-family: "Poppins", sans-serif;
+  color: rgba(255, 255, 255, 1);
+}
+.location-weather-icon-container {
+  justify-content: center;
+}
+.location-weather-icon {
+  height: 100%;
+  width: auto;
+}
+.location-weather-temp-container {
+  justify-content: center;
+}
+.location-weather-temp {
+  font-size: 4em;
+}
+.location-weather-type {
+  font-size: 1.5em;
+}
+.location-weather-info-container {
+  justify-content: flex-end;
+}
+.location-weather-place {
+  font-size: 1.5em;
+}
+
+/*<body>
+    <section class="location">
+      <div class="location-search">
+        <input type="text" placeholder="Search location here" />
+        <button><i class="fas fa-search"></i></button>
+      </div>
+
+      <div class="location-weather">
+        <img src="" alt="" class="location-weather-icon" />
+        <div class="location-weather-info">
+          <p class="location-weather-info-temp"></p>
+          <p class="location-weather-info-place"></p>
+          <p class="location-weather-info-type"></p>
+        </div>
+      </div>
+    </section>
+    <section class="forecast">gadfgaregare</section>
+    <script src="bundle.js"></script>
+  </body>*/
 
 .forecast {
   background-color: rgba(255, 255, 255, 1);

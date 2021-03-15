@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -14,13 +19,24 @@
   </head>
   <body>
     <section class="location">
-      <input type="text" placeholder="Search location here" />
-      <button><i class="fas fa-search"></i></button>
-      <img src="" alt="" class="location-weather-icon" />
-      <div class="location-temperature"></div>
-      <div class="location-info">
-        <h2 class="location-name"></h2>
-        <h3 class="location-weather"></h3>
+      <div class="location-search-container">
+        <div class="location-search">
+          <input type="text" placeholder="Search location here" />
+          <button><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+
+      <div class="location-weather">
+        <div class="location-weather-icon-container">
+          <img src="" alt="" class="location-weather-icon" />
+        </div>
+        <div class="location-weather-temp-container">
+          <p class="location-weather-temp"></p>
+          <p class="location-weather-type"></p>
+        </div>
+        <div class="location-weather-info-container">
+          <p class="location-weather-place"></p>
+        </div>
       </div>
     </section>
     <section class="forecast">gadfgaregare</section>
