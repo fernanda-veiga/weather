@@ -21,8 +21,8 @@ function storeInfoWeatherData(fullWeatherData, fullForecastData) {
       fullWeatherData.sys.sunset,
       fullWeatherData.timezone
     ),
-    humidity: fullWeatherData.main.humidity,
     windSpeed: fullWeatherData.wind.speed,
+    humidity: fullWeatherData.main.humidity,
   };
   return infoWeatherData;
 }

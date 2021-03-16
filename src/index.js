@@ -35,7 +35,7 @@ async function fetchWeatherData(location) {
     console.log(await infoWeatherData);
 
     //Generate the page
-    await generateWeatherPage(locationWeatherData);
+    await generateWeatherPage(locationWeatherData, infoWeatherData);
   } catch (error) {
     console.log(`There is an error: ${error}`);
   }
