@@ -153,11 +153,18 @@ body {
   width: 50%;
   height: auto;
 }
+.info-forecast-content img {
+  filter: invert(50%);
+}
 .info-general-content p,
-.info-forecast-content p {
+.info-forecast-content p,
+.info-forecast-content h5 {
   font-family: "Poppins", sans-serif;
   color: gray;
 }
-.info-forecast {
-  background: blueviolet;
+.info-forecast-content p {
+  font-size: 0.9em;
+}
+.info-forecast-content h5 {
+  font-size: 1.1em;
 }
