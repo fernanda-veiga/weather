@@ -56,7 +56,6 @@ function storeInfoWeatherData(fullWeatherData, fullForecastData) {
       ),
     },
   };
-  console.log(infoWeatherData.forecast);
   return infoWeatherData;
 }
 
