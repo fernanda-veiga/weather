@@ -1,4 +1,5 @@
 import "./css/style.css";
+import "./css/toggle-btn.css";
 import { generateWeatherPage } from "./dom";
 import { addListenerToSearchButton } from "./search-box";
 import { storeLocationWeatherData, storeInfoWeatherData } from "./store-data";

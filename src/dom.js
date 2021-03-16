@@ -9,7 +9,7 @@ import svgHumidity from "./icons/aplication/humidity.svg";
 
 function generateWeatherPage(locationWeatherData, infoWeatherData) {
   generateLocationSection(locationWeatherData);
-  generateInfoSection(infoWeatherData);
+  generateInfoSection(locationWeatherData, infoWeatherData);
 }
 
 function generateLocationSection(locationWeatherData) {
@@ -28,12 +28,12 @@ function generateLocationSection(locationWeatherData) {
   weatherContainer.textContent = `${locationWeatherData.currentWeather}`;
 }
 
-function generateInfoSection(infoWeatherData) {
-  generateGeneralInfoSection(infoWeatherData);
+function generateInfoSection(locationWeatherData, infoWeatherData) {
+  generateGeneralInfoSection(locationWeatherData, infoWeatherData);
   generateForecastInfoSection(infoWeatherData);
 }
 
-function generateGeneralInfoSection(infoWeatherData) {
+function generateGeneralInfoSection(locationWeatherData, infoWeatherData) {
   const sunriseIcon = document.querySelector(".info-sunrise-icon");
   const sunriseValue = document.querySelector(".info-sunrise-value");
   const sunsetIcon = document.querySelector(".info-sunset-icon");
@@ -54,6 +54,12 @@ function generateGeneralInfoSection(infoWeatherData) {
   sunsetValue.textContent = `${infoWeatherData.sunset}`;
   windValue.textContent = `${infoWeatherData.windSpeed} m/s`;
   humidityValue.textContent = `${infoWeatherData.humidity}%`;
+
+  //Toggle button
+  const toggleButton = document.querySelector(".toggle-slider");
+  toggleButton.style.background = generateWeatherBackground(
+    locationWeatherData.currentWeather
+  );
 }
 
 function generateForecastInfoSection(infoWeatherData) {
