@@ -115,37 +115,46 @@ body {
 .info > * {
   flex-basis: 100%;
 }
-.info-general {
+.info-general,
+.info-forecast {
   display: flex;
   flex-direction: column;
 }
-.info-general-title-container {
+.info-general-title-container,
+.info-forecast-title-container {
   flex: 1 1 10%;
   border-bottom: 2px solid gray;
 }
-.info-general-title-container h2 {
+.info h2 {
   font-family: "Poppins", sans-serif;
   color: gray;
   font-size: 1.5em;
 }
-.info-general-content {
+.info-general-content,
+.info-forecast-content {
   flex: 1 1 90%;
   padding: 20px;
   display: flex;
   gap: 20px;
 }
-.info-general-content > * {
+.info-general-content > *,
+.info-forecast-content > * {
   flex-basis: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.info-general-content img {
+.info-forecast-content > * {
+  background: tomato;
+}
+.info-general-content img,
+.info-forecast-content img {
   width: 50%;
   height: auto;
 }
-.info-general-content p {
+.info-general-content p,
+.info-forecast-content p {
   font-family: "Poppins", sans-serif;
   color: gray;
 }
