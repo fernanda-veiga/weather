@@ -23,8 +23,27 @@ function storeInfoWeatherData(fullWeatherData, fullForecastData) {
     ),
     windSpeed: fullWeatherData.wind.speed,
     humidity: fullWeatherData.main.humidity,
+    forecast: {
+      day01: {
+        min: calculateAvarageTemp(fullForecastData.list, 0, "min"),
+      },
+    },
   };
+  console.log(infoWeatherData.forecast.day01.min);
   return infoWeatherData;
+}
+
+function calculateAvarageTemp(fullArray, indexStart, minOrMax) {
+  const currentDayArray = fullArray.slice(indexStart, 8);
+  const tempArray = currentDayArray.reduce((previousValue, currentValue) => {
+    previousValue.push(currentValue.main[`temp_${minOrMax}`]);
+    return previousValue;
+  }, []);
+  const sumTemp = tempArray.reduce((previousValue, currentValue) => {
+    return previousValue + currentValue;
+  }, 0);
+  const avgTemp = sumTemp / tempArray.length;
+  return avgTemp.toFixed(0);
 }
 
 export { storeLocationWeatherData, storeInfoWeatherData };
