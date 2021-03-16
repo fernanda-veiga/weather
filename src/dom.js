@@ -40,7 +40,7 @@ function generateInfoSection(infoWeatherData) {
   //Set values
   sunriseValue.textContent = `${infoWeatherData.sunrise}`;
   sunsetValue.textContent = `${infoWeatherData.sunset}`;
-  windValue.textContent = `${infoWeatherData.windSpeed}m/s`;
+  windValue.textContent = `${infoWeatherData.windSpeed} m/s`;
   humidityValue.textContent = `${infoWeatherData.humidity}%`;
 }
 

@@ -4,6 +4,9 @@ function convertDateToTime(unixTime, timezoneShift) {
   const date = convertUTCToTimezone(unixTime, timezoneShift);
   const hour = date.getHours();
   const minute = date.getMinutes();
+  if (minute < 10) {
+    return `${hour}h0${minute}`;
+  }
   return `${hour}h${minute}`;
 }
 
