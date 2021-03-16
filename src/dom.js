@@ -1,4 +1,7 @@
-import { generateWeatherIcon } from "./weather-icons";
+import {
+  generateWeatherIcon,
+  generateWeatherBackground,
+} from "./weather-icons";
 import svgSunrise from "./icons/aplication/sunrise.svg";
 import svgSunset from "./icons/aplication/sunset.svg";
 import svgWind from "./icons/aplication/wind-speed.svg";
@@ -10,11 +13,15 @@ function generateWeatherPage(locationWeatherData, infoWeatherData) {
 }
 
 function generateLocationSection(locationWeatherData) {
+  const locationSection = document.querySelector(".location");
   const weatherIcon = document.querySelector(".location-weather-icon");
   const tempContainer = document.querySelector(".location-weather-temp");
   const placeContainer = document.querySelector(".location-weather-place");
   const weatherContainer = document.querySelector(".location-weather-type");
 
+  locationSection.style.background = generateWeatherBackground(
+    locationWeatherData.currentWeather
+  );
   weatherIcon.src = generateWeatherIcon(locationWeatherData.currentWeather);
   tempContainer.textContent = `${locationWeatherData.currentTemp}°C`;
   placeContainer.textContent = `${locationWeatherData.city}, ${locationWeatherData.country}`;

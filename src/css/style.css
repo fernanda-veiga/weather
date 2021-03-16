@@ -13,12 +13,6 @@ body {
 
 .location {
   padding: 20px;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 212, 255, 1) 0%,
-    rgba(107, 223, 226, 1) 50%,
-    rgba(250, 254, 85, 1) 100%
-  );
   flex: 1 1 40%;
   display: flex;
   flex-direction: column;
