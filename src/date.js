@@ -10,6 +10,35 @@ function convertDateToTime(unixTime, timezoneShift) {
   return `${hour}h${minute}`;
 }
 
+function getDayOfTheWeek(unixTime, timezoneShift) {
+  const date = convertUTCToTimezone(unixTime, timezoneShift);
+  let day = "";
+
+  switch (date.getDay()) {
+    case 0:
+      day = "Sunday";
+      break;
+    case 1:
+      day = "Monday";
+      break;
+    case 2:
+      day = "Tuesday";
+      break;
+    case 3:
+      day = "Wednesday";
+      break;
+    case 4:
+      day = "Thursday";
+      break;
+    case 5:
+      day = "Friday";
+      break;
+    case 6:
+      day = "Saturday";
+  }
+  return day;
+}
+
 function convertUTCToTimezone(unixTime, timezoneShift) {
   const utcDate = convertUnixToUTC(unixTime);
   const timezoneTime = addSeconds(utcDate, timezoneShift);
@@ -29,4 +58,4 @@ function convertUnixToUTC(unixTime) {
   return utcDate;
 }
 
-export { convertDateToTime };
+export { convertDateToTime, getDayOfTheWeek };

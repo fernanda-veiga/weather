@@ -1,4 +1,4 @@
-import { convertDateToTime } from "./date";
+import { convertDateToTime, getDayOfTheWeek } from "./date";
 
 function storeLocationWeatherData(fullWeatherData) {
   const locationWeatherData = {
@@ -24,23 +24,49 @@ function storeInfoWeatherData(fullWeatherData, fullForecastData) {
     windSpeed: fullWeatherData.wind.speed,
     humidity: fullWeatherData.main.humidity,
     forecast: {
-      day1: getParameters(fullForecastData.list, 0, 8),
-      day2: getParameters(fullForecastData.list, 8, 16),
-      day3: getParameters(fullForecastData.list, 16, 24),
-      day4: getParameters(fullForecastData.list, 24, 32),
-      day5: getParameters(fullForecastData.list, 32, 40),
+      day1: getParameters(
+        fullForecastData.list,
+        fullWeatherData.timezone,
+        0,
+        8
+      ),
+      day2: getParameters(
+        fullForecastData.list,
+        fullWeatherData.timezone,
+        8,
+        16
+      ),
+      day3: getParameters(
+        fullForecastData.list,
+        fullWeatherData.timezone,
+        16,
+        24
+      ),
+      day4: getParameters(
+        fullForecastData.list,
+        fullWeatherData.timezone,
+        24,
+        32
+      ),
+      day5: getParameters(
+        fullForecastData.list,
+        fullWeatherData.timezone,
+        32,
+        40
+      ),
     },
   };
   console.log(infoWeatherData.forecast);
   return infoWeatherData;
 }
 
-function getParameters(fullArray, indexStart, indexEnd) {
+function getParameters(fullArray, timezoneShift, indexStart, indexEnd) {
   const minAndMaxTemp = getMinAndMaxTemp(fullArray, indexStart, indexEnd);
   return {
     min: minAndMaxTemp[0],
     max: minAndMaxTemp[1],
     weather: fullArray[indexStart].weather[0].main,
+    day: getDayOfTheWeek(fullArray[indexStart].dt, timezoneShift),
   };
 }
 
