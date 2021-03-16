@@ -24,5 +24,9 @@
     "style-loader": "^2.0.0",
     "webpack": "^5.25.1",
     "webpack-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "date-fns": "^2.19.0",
+    "date-fns-tz": "^1.1.3"
   }
 }

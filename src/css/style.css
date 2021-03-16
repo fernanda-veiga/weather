@@ -105,27 +105,7 @@ body {
   font-size: 1.5em;
 }
 
-/*<body>
-    <section class="location">
-      <div class="location-search">
-        <input type="text" placeholder="Search location here" />
-        <button><i class="fas fa-search"></i></button>
-      </div>
-
-      <div class="location-weather">
-        <img src="" alt="" class="location-weather-icon" />
-        <div class="location-weather-info">
-          <p class="location-weather-info-temp"></p>
-          <p class="location-weather-info-place"></p>
-          <p class="location-weather-info-type"></p>
-        </div>
-      </div>
-    </section>
-    <section class="forecast">gadfgaregare</section>
-    <script src="bundle.js"></script>
-  </body>*/
-
-.forecast {
+.info {
   background-color: rgba(255, 255, 255, 1);
   flex: 1 1 60%;
 }
