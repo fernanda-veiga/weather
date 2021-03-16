@@ -50,12 +50,6 @@ function generateGeneralInfoSection(infoWeatherData) {
 }
 
 function generateForecastInfoSection(infoWeatherData) {
-  /*const forecastContentDiv = document.querySelector(".info-forecast-content");
-  const eachDayDiv = Array.from(forecastContentDiv.querySelectorAll('div'));
-
-  eachDayDiv.forEach(div => {
-
-  })*/
   for (let i = 1; i <= 5; i++) {
     const dayNumber = `day${i}`;
 
@@ -63,31 +57,12 @@ function generateForecastInfoSection(infoWeatherData) {
     const valueContainer = document.querySelector(`.info-${dayNumber}-value`);
     const iconContainer = document.querySelector(`.info-${dayNumber}-icon`);
 
-    titleContainer.textContent = `${infoWeatherData.forecast[dayNumber].day}`;
-    valueContainer.textContent = `${infoWeatherData.forecast[dayNumber].min}°C / ${infoWeatherData.forecast[dayNumber].max}°C`;
+    titleContainer.textContent = `${infoWeatherData.forecast[dayNumber].day}`.toUpperCase();
+    valueContainer.textContent = `${infoWeatherData.forecast[dayNumber].min}/${infoWeatherData.forecast[dayNumber].max}°C`;
     iconContainer.src = generateWeatherIcon(
       `${infoWeatherData.forecast[dayNumber].weather}`
     );
   }
-  /*const sunriseValue = document.querySelector(".info-sunrise-value");
-  const sunsetIcon = document.querySelector(".info-sunset-icon");
-  const sunsetValue = document.querySelector(".info-sunset-value");
-  const windIcon = document.querySelector(".info-wind-icon");
-  const windValue = document.querySelector(".info-wind-value");
-  const humidityIcon = document.querySelector(".info-humidity-icon");
-  const humidityValue = document.querySelector(".info-humidity-value");
-
-  //Set icons
-  sunriseIcon.src = svgSunrise;
-  sunsetIcon.src = svgSunset;
-  windIcon.src = svgWind;
-  humidityIcon.src = svgHumidity;
-
-  //Set values
-  sunriseValue.textContent = `${infoWeatherData.sunrise}`;
-  sunsetValue.textContent = `${infoWeatherData.sunset}`;
-  windValue.textContent = `${infoWeatherData.windSpeed} m/s`;
-  humidityValue.textContent = `${infoWeatherData.humidity}%`;*/
 }
 
 export { generateWeatherPage };
