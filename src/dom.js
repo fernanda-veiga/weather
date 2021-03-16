@@ -22,6 +22,11 @@ function generateLocationSection(locationWeatherData) {
 }
 
 function generateInfoSection(infoWeatherData) {
+  generateGeneralInfoSection(infoWeatherData);
+  generateForecastInfoSection(infoWeatherData);
+}
+
+function generateGeneralInfoSection(infoWeatherData) {
   const sunriseIcon = document.querySelector(".info-sunrise-icon");
   const sunriseValue = document.querySelector(".info-sunrise-value");
   const sunsetIcon = document.querySelector(".info-sunset-icon");
@@ -42,6 +47,40 @@ function generateInfoSection(infoWeatherData) {
   sunsetValue.textContent = `${infoWeatherData.sunset}`;
   windValue.textContent = `${infoWeatherData.windSpeed} m/s`;
   humidityValue.textContent = `${infoWeatherData.humidity}%`;
+}
+
+function generateForecastInfoSection(infoWeatherData) {
+  /*const forecastContentDiv = document.querySelector(".info-forecast-content");
+  const eachDayDiv = Array.from(forecastContentDiv.querySelectorAll('div'));
+
+  eachDayDiv.forEach(div => {
+
+  })*/
+  for (let i = 1; i <= 5; i++) {
+    const dayNumber = `day${i}`;
+    document.querySelector(
+      `.info-${dayNumber}-value`
+    ).textContent = `${infoWeatherData.forecast[dayNumber].min}°C / ${infoWeatherData.forecast[dayNumber].max}°C`;
+  }
+  /*const sunriseValue = document.querySelector(".info-sunrise-value");
+  const sunsetIcon = document.querySelector(".info-sunset-icon");
+  const sunsetValue = document.querySelector(".info-sunset-value");
+  const windIcon = document.querySelector(".info-wind-icon");
+  const windValue = document.querySelector(".info-wind-value");
+  const humidityIcon = document.querySelector(".info-humidity-icon");
+  const humidityValue = document.querySelector(".info-humidity-value");
+
+  //Set icons
+  sunriseIcon.src = svgSunrise;
+  sunsetIcon.src = svgSunset;
+  windIcon.src = svgWind;
+  humidityIcon.src = svgHumidity;
+
+  //Set values
+  sunriseValue.textContent = `${infoWeatherData.sunrise}`;
+  sunsetValue.textContent = `${infoWeatherData.sunset}`;
+  windValue.textContent = `${infoWeatherData.windSpeed} m/s`;
+  humidityValue.textContent = `${infoWeatherData.humidity}%`;*/
 }
 
 export { generateWeatherPage };

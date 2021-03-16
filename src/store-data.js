@@ -28,11 +28,11 @@ function storeInfoWeatherData(fullWeatherData, fullForecastData) {
         min: 0,
         max: 0,
       },
-      day01: getAvarageTemp(fullForecastData.list, 0, 8),
-      day02: getAvarageTemp(fullForecastData.list, 8, 16),
-      day03: getAvarageTemp(fullForecastData.list, 16, 24),
-      day04: getAvarageTemp(fullForecastData.list, 24, 32),
-      day05: getAvarageTemp(fullForecastData.list, 32, 40),
+      day1: getAvarageTemp(fullForecastData.list, 0, 8),
+      day2: getAvarageTemp(fullForecastData.list, 8, 16),
+      day3: getAvarageTemp(fullForecastData.list, 16, 24),
+      day4: getAvarageTemp(fullForecastData.list, 24, 32),
+      day5: getAvarageTemp(fullForecastData.list, 32, 40),
     },
   };
   console.log(infoWeatherData.forecast);
