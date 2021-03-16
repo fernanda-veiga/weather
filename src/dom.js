@@ -59,9 +59,11 @@ function generateForecastInfoSection(infoWeatherData) {
   for (let i = 1; i <= 5; i++) {
     const dayNumber = `day${i}`;
 
+    const titleContainer = document.querySelector(`.info-${dayNumber}-title`);
     const valueContainer = document.querySelector(`.info-${dayNumber}-value`);
     const iconContainer = document.querySelector(`.info-${dayNumber}-icon`);
 
+    titleContainer.textContent = `${infoWeatherData.forecast[dayNumber].day}`;
     valueContainer.textContent = `${infoWeatherData.forecast[dayNumber].min}°C / ${infoWeatherData.forecast[dayNumber].max}°C`;
     iconContainer.src = generateWeatherIcon(
       `${infoWeatherData.forecast[dayNumber].weather}`
