@@ -24,26 +24,30 @@ function storeInfoWeatherData(fullWeatherData, fullForecastData) {
     windSpeed: fullWeatherData.wind.speed,
     humidity: fullWeatherData.main.humidity,
     forecast: {
-      day01: {
-        min: calculateAvarageTemp(fullForecastData.list, 0, "min"),
+      today: {
+        min: 0,
+        max: 0,
       },
+      day01: getAvarageTemp(fullForecastData.list, 0, 8),
+      day02: getAvarageTemp(fullForecastData.list, 8, 16),
+      day03: getAvarageTemp(fullForecastData.list, 16, 24),
+      day04: getAvarageTemp(fullForecastData.list, 24, 32),
+      day05: getAvarageTemp(fullForecastData.list, 32, 40),
     },
   };
-  console.log(infoWeatherData.forecast.day01.min);
+  console.log(infoWeatherData.forecast);
   return infoWeatherData;
 }
 
-function calculateAvarageTemp(fullArray, indexStart, minOrMax) {
-  const currentDayArray = fullArray.slice(indexStart, 8);
+function getAvarageTemp(fullArray, indexStart, indexEnd) {
+  const currentDayArray = fullArray.slice(indexStart, indexEnd);
   const tempArray = currentDayArray.reduce((previousValue, currentValue) => {
-    previousValue.push(currentValue.main[`temp_${minOrMax}`]);
+    previousValue.push(currentValue.main.temp);
     return previousValue;
   }, []);
-  const sumTemp = tempArray.reduce((previousValue, currentValue) => {
-    return previousValue + currentValue;
-  }, 0);
-  const avgTemp = sumTemp / tempArray.length;
-  return avgTemp.toFixed(0);
+  const minTemp = Math.min(...tempArray).toFixed(0);
+  const maxTemp = Math.max(...tempArray).toFixed(0);
+  return { min: minTemp, max: maxTemp };
 }
 
 export { storeLocationWeatherData, storeInfoWeatherData };
