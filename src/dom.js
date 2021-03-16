@@ -58,9 +58,14 @@ function generateForecastInfoSection(infoWeatherData) {
   })*/
   for (let i = 1; i <= 5; i++) {
     const dayNumber = `day${i}`;
-    document.querySelector(
-      `.info-${dayNumber}-value`
-    ).textContent = `${infoWeatherData.forecast[dayNumber].min}°C / ${infoWeatherData.forecast[dayNumber].max}°C`;
+
+    const valueContainer = document.querySelector(`.info-${dayNumber}-value`);
+    const iconContainer = document.querySelector(`.info-${dayNumber}-icon`);
+
+    valueContainer.textContent = `${infoWeatherData.forecast[dayNumber].min}°C / ${infoWeatherData.forecast[dayNumber].max}°C`;
+    iconContainer.src = generateWeatherIcon(
+      `${infoWeatherData.forecast[dayNumber].weather}`
+    );
   }
   /*const sunriseValue = document.querySelector(".info-sunrise-value");
   const sunsetIcon = document.querySelector(".info-sunset-icon");
