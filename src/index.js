@@ -1,7 +1,7 @@
 import "./css/style.css";
 import { generateWeatherPage } from "./dom";
 import { addListenerToSearchButton } from "./search-box";
-import { convertUTCToTimezone } from "./date";
+import { storeLocationWeatherData, storeInfoWeatherData } from "./store-data";
 
 fetchWeatherData("Fortaleza");
 addListenerToSearchButton();
@@ -39,34 +39,6 @@ async function fetchWeatherData(location) {
   } catch (error) {
     console.log(`There is an error: ${error}`);
   }
-}
-
-function storeLocationWeatherData(fullWeatherData) {
-  const locationWeatherData = {
-    city: fullWeatherData.name,
-    country: fullWeatherData.sys.country,
-    currentTemp: fullWeatherData.main.temp.toFixed(0),
-    feelsLike: fullWeatherData.main.feels_like,
-    currentWeather: fullWeatherData.weather[0].main,
-  };
-  return locationWeatherData;
-}
-
-function storeInfoWeatherData(fullWeatherData, fullForecastData) {
-  const infoWeatherData = {
-    sunrise: convertUTCToTimezone(
-      fullWeatherData.sys.sunrise,
-      fullWeatherData.timezone
-    ),
-    sunset: convertUTCToTimezone(
-      fullWeatherData.sys.sunset,
-      fullWeatherData.timezone
-    ),
-    humidity: fullWeatherData.main.humidity,
-    windSpeed: fullWeatherData.wind.speed,
-  };
-  console.log(infoWeatherData.sunrise);
-  return infoWeatherData;
 }
 
 export { fetchWeatherData };
