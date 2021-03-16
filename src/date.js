@@ -1,5 +1,12 @@
 import { fromUnixTime, addSeconds } from "date-fns";
 
+function convertDateToTime(unixTime, timezoneShift) {
+  const date = convertUTCToTimezone(unixTime, timezoneShift);
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+  return `${hour}h${minute}`;
+}
+
 function convertUTCToTimezone(unixTime, timezoneShift) {
   const utcDate = convertUnixToUTC(unixTime);
   const timezoneTime = addSeconds(utcDate, timezoneShift);
@@ -19,4 +26,4 @@ function convertUnixToUTC(unixTime) {
   return utcDate;
 }
 
-export { convertUTCToTimezone };
+export { convertDateToTime };

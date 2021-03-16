@@ -1,4 +1,4 @@
-import { convertUTCToTimezone } from "./date";
+import { convertDateToTime } from "./date";
 
 function storeLocationWeatherData(fullWeatherData) {
   const locationWeatherData = {
@@ -13,11 +13,11 @@ function storeLocationWeatherData(fullWeatherData) {
 
 function storeInfoWeatherData(fullWeatherData, fullForecastData) {
   const infoWeatherData = {
-    sunrise: convertUTCToTimezone(
+    sunrise: convertDateToTime(
       fullWeatherData.sys.sunrise,
       fullWeatherData.timezone
     ),
-    sunset: convertUTCToTimezone(
+    sunset: convertDateToTime(
       fullWeatherData.sys.sunset,
       fullWeatherData.timezone
     ),

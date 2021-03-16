@@ -115,7 +115,26 @@ body {
   flex-basis: 100%;
 }
 .info-general {
+  padding: 20px;
   background: blue;
+  display: flex;
+  gap: 20px;
+}
+.info-general > * {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: chartreuse;
+}
+.info-general img {
+  width: 50%;
+  height: auto;
+}
+.info-general p {
+  font-family: "Poppins", sans-serif;
+  color: rgba(255, 255, 255, 1);
 }
 .info-forecast {
   background: blueviolet;
