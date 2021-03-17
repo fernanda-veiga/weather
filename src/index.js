@@ -21,8 +21,7 @@ function addListenerToSearchButton() {
 
   //Add keyboard event
   window.addEventListener("keyup", (event) => {
-    const ENTER_KEY_CODE = 13;
-    if (event.keyCode === ENTER_KEY_CODE && locationSearchInput.value !== "") {
+    if (event.key === "Enter" && locationSearchInput.value !== "") {
       searchEvent();
     }
   });
