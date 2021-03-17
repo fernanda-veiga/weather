@@ -18,8 +18,14 @@ const weatherObject = {
     background: "linear-gradient(#190A05, #870000)",
   },
   Clear: {
-    icon: iconClearDay,
-    background: "linear-gradient(#FF512F, #F09819)",
+    day: {
+      icon: iconClearDay,
+      background: "linear-gradient(#FF512F, #F09819)",
+    },
+    night: {
+      icon: iconClearDay,
+      background: "linear-gradient(#FF512F, #F09819)",
+    },
   },
   Clouds: {
     icon: iconClouds,

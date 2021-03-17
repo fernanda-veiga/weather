@@ -7,7 +7,9 @@ function storeLocationWeatherData(fullWeatherData) {
     currentTemp: fullWeatherData.main.temp.toFixed(0),
     feelsLike: fullWeatherData.main.feels_like,
     currentWeather: fullWeatherData.weather[0].main,
+    timeOfDay: fullWeatherData.weather[0].icon.slice(-1),
   };
+  console.log(locationWeatherData);
   return locationWeatherData;
 }
 
