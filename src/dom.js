@@ -6,6 +6,7 @@ import svgSunrise from "./icons/aplication/sunrise.svg";
 import svgSunset from "./icons/aplication/sunset.svg";
 import svgWind from "./icons/aplication/wind-speed.svg";
 import svgHumidity from "./icons/aplication/humidity.svg";
+import { getUnitNames } from "./toggle-btn";
 
 function generateWeatherPage(locationWeatherData, infoWeatherData) {
   generateLocationSection(locationWeatherData);
@@ -19,11 +20,14 @@ function generateLocationSection(locationWeatherData) {
   const placeContainer = document.querySelector(".location-weather-place");
   const weatherContainer = document.querySelector(".location-weather-type");
 
+  //Get current unit
+  const tempUnit = getUnitNames()[0];
+
   locationSection.style.background = generateWeatherBackground(
     locationWeatherData.currentWeather
   );
   weatherIcon.src = generateWeatherIcon(locationWeatherData.currentWeather);
-  tempContainer.textContent = `${locationWeatherData.currentTemp}°C`;
+  tempContainer.textContent = `${locationWeatherData.currentTemp}${tempUnit}`;
   placeContainer.textContent = `${locationWeatherData.city}, ${locationWeatherData.country}`;
   weatherContainer.textContent = `${locationWeatherData.currentWeather}`;
 }
@@ -43,6 +47,9 @@ function generateGeneralInfoSection(locationWeatherData, infoWeatherData) {
   const humidityIcon = document.querySelector(".info-humidity-icon");
   const humidityValue = document.querySelector(".info-humidity-value");
 
+  //Get current unit
+  const speedUnit = getUnitNames()[1];
+
   //Set icons
   sunriseIcon.src = svgSunrise;
   sunsetIcon.src = svgSunset;
@@ -52,7 +59,7 @@ function generateGeneralInfoSection(locationWeatherData, infoWeatherData) {
   //Set values
   sunriseValue.textContent = `${infoWeatherData.sunrise}`;
   sunsetValue.textContent = `${infoWeatherData.sunset}`;
-  windValue.textContent = `${infoWeatherData.windSpeed} m/s`;
+  windValue.textContent = `${infoWeatherData.windSpeed} ${speedUnit}`;
   humidityValue.textContent = `${infoWeatherData.humidity}%`;
 
   //Toggle button
@@ -63,6 +70,9 @@ function generateGeneralInfoSection(locationWeatherData, infoWeatherData) {
 }
 
 function generateForecastInfoSection(infoWeatherData) {
+  //Get current unit
+  const tempUnit = getUnitNames()[0];
+
   for (let i = 1; i <= 5; i++) {
     const dayNumber = `day${i}`;
 
@@ -71,7 +81,7 @@ function generateForecastInfoSection(infoWeatherData) {
     const iconContainer = document.querySelector(`.info-${dayNumber}-icon`);
 
     titleContainer.textContent = `${infoWeatherData.forecast[dayNumber].day}`.toUpperCase();
-    valueContainer.textContent = `${infoWeatherData.forecast[dayNumber].min}/${infoWeatherData.forecast[dayNumber].max}°C`;
+    valueContainer.textContent = `${infoWeatherData.forecast[dayNumber].min}/${infoWeatherData.forecast[dayNumber].max}${tempUnit}`;
     iconContainer.src = generateWeatherIcon(
       `${infoWeatherData.forecast[dayNumber].weather}`
     );
