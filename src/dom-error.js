@@ -1,6 +1,6 @@
 import errorIcon from "./icons/aplication/error.svg";
 
-function displayAllErrorsOnScreen() {
+function displayAllErrors() {
   displayError(".location-weather");
   displayError(".info-general-content");
   displayError(".info-forecast-content");
@@ -31,4 +31,4 @@ function displayError(contentContainerClass) {
   contentContainer.appendChild(errorContainer);
 }
 
-export { displayAllErrorsOnScreen };
+export { displayAllErrors };

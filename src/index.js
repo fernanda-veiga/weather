@@ -16,21 +16,34 @@ function addListenerToSearchButton() {
   );
   const locationSearchInput = document.querySelector(".location-search-input");
 
-  locationSearchButton.addEventListener("click", () => {
-    //Throw error if the text is invalid
-    console.log(locationSearchInput.validity.valid);
-    if (locationSearchInput.validity.valid) {
-      eraseInputError();
-    } else {
-      showInputError(locationSearchInput);
-      return;
-    }
+  //Add click event
+  locationSearchButton.addEventListener("click", searchEvent);
 
-    //Get location and data
-    currentLocation = getCurrentLocation();
-    fetchWeatherData(currentLocation);
+  //Add keyboard event
+  window.addEventListener("keyup", (event) => {
+    const ENTER_KEY_CODE = 13;
+    if (event.keyCode === ENTER_KEY_CODE && locationSearchInput.value !== "") {
+      searchEvent();
+    }
   });
 }
+
+function searchEvent() {
+  const locationSearchInput = document.querySelector(".location-search-input");
+
+  //Throw error if the text is invalid
+  if (locationSearchInput.validity.valid) {
+    eraseInputError();
+  } else {
+    showInputError(locationSearchInput);
+    return;
+  }
+
+  //Get location and data
+  currentLocation = getCurrentLocation();
+  fetchWeatherData(currentLocation);
+}
+
 addListenerToSearchButton();
 
 //Add listener to toggle

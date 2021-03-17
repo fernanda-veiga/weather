@@ -1,13 +1,3 @@
-import {
-  generateWeatherIcon,
-  generateWeatherBackground,
-} from "./weather-icons";
-import svgSunrise from "./icons/aplication/sunrise.svg";
-import svgSunset from "./icons/aplication/sunset.svg";
-import svgWind from "./icons/aplication/wind-speed.svg";
-import svgHumidity from "./icons/aplication/humidity.svg";
-import { getUnitNames } from "./toggle-btn";
-
 import { generateLocationSection } from "./dom-location-section";
 import { generateGeneralInfoSection } from "./dom-general-info-section";
 import { generateForecastInfoSection } from "./dom-forecast-section";
