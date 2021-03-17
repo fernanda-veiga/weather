@@ -2,6 +2,7 @@ import "./css/style.css";
 import "./css/toggle-btn.css";
 import { fetchWeatherData } from "./fetch-data";
 import { getCurrentLocation } from "./search-box";
+import { showInputError, eraseInputError } from "./input-error";
 
 let currentLocation = "London";
 fetchWeatherData(currentLocation);
@@ -11,7 +12,19 @@ function addListenerToSearchButton() {
   const locationSearchButton = document.querySelector(
     ".location-search-button"
   );
+  const locationSearchInput = document.querySelector(".location-search-input");
+
   locationSearchButton.addEventListener("click", () => {
+    //Throw error if the text is invalid
+    console.log(locationSearchInput.validity.valid);
+    if (locationSearchInput.validity.valid) {
+      eraseInputError();
+    } else {
+      showInputError(locationSearchInput);
+      return;
+    }
+
+    //Get location and data
     currentLocation = getCurrentLocation();
     fetchWeatherData(currentLocation);
   });
