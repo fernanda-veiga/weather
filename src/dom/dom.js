@@ -1,14 +1,17 @@
 import {
   generateWeatherIcon,
   generateWeatherBackground,
-} from "./weather-icons";
+} from "../weather-icons";
 import svgSunrise from "./icons/aplication/sunrise.svg";
 import svgSunset from "./icons/aplication/sunset.svg";
 import svgWind from "./icons/aplication/wind-speed.svg";
 import svgHumidity from "./icons/aplication/humidity.svg";
 import { getUnitNames } from "./toggle-btn";
 
-import { generateLocationSection } from "./dom-location-section";
+import {
+  generateLocationSectionElements,
+  generateLocationSectionValues,
+} from "./location-section";
 
 function generateLoader() {
   //Remove all existing elements before generating the loader
@@ -33,6 +36,30 @@ function generateWeatherPage(locationWeatherData, infoWeatherData) {
 
   generateLocationSection(locationWeatherData);
   generateInfoSection(locationWeatherData, infoWeatherData);
+}
+
+function generateLocationSection(locationWeatherData) {
+  //Generate elements
+  const [
+    iconContainer,
+    weatherInfoContainer,
+    locationInfoContainer,
+  ] = generateLocationSectionElements();
+
+  //Append elements to container
+  const contentContainer = document.querySelector(".location-weather");
+  contentContainer.appendChild(iconContainer);
+  contentContainer.appendChild(weatherInfoContainer);
+  contentContainer.appendChild(locationInfoContainer);
+
+  //Change background
+  const locationSection = document.querySelector(".location");
+  locationSection.style.background = generateWeatherBackground(
+    locationWeatherData.currentWeather
+  );
+
+  //Generate values
+  generateLocationSectionValues(locationWeatherData);
 }
 
 function generateInfoSection(locationWeatherData, infoWeatherData) {

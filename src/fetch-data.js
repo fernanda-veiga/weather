@@ -1,4 +1,4 @@
-import { generateWeatherPage } from "./dom";
+import { generateWeatherPage, generateLoader } from "./dom";
 import { getUnitType } from "./toggle-btn";
 import { storeLocationWeatherData, storeInfoWeatherData } from "./store-data";
 
@@ -6,6 +6,7 @@ async function fetchWeatherData(location) {
   try {
     const API_KEY = "d3bb1e3bed4381c130b23c941a594404";
     const unit = getUnitType();
+    generateLoader();
 
     //Fetch data
     const fetchedCurrentWeatherData = await fetch(

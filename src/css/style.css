@@ -22,7 +22,6 @@ body {
 
 /*Search box*/
 .location-search-container {
-  background: tomato;
   width: 100%;
   flex: 1 1 5%;
   display: flex;
@@ -161,8 +160,9 @@ body {
   gap: 5px;
 }
 .info-forecast-content > * {
-  border: 1px solid gray;
+  border: 2px solid gray;
   border-radius: 5px;
+  box-shadow: 0 0 5px gray;
 }
 .info-general-content img,
 .info-forecast-content img {
