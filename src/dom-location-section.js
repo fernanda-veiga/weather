@@ -5,6 +5,10 @@ import {
 } from "./weather-icons";
 
 function generateLocationSection(locationWeatherData) {
+  //Remove loader before generating the section
+  const contentContainer = document.querySelector(".location-weather");
+  contentContainer.innerHTML = "";
+
   generateLocationSectionElements();
   changeCurrentBackground();
   generateLocationSectionValues(locationWeatherData);
@@ -42,9 +46,9 @@ function generateLocationSectionElements() {
 
 function changeCurrentBackground(locationWeatherData) {
   const locationSection = document.querySelector(".location");
-  locationSection.style.background = generateWeatherBackground(
+  /*locationSection.style.background = generateWeatherBackground(
     locationWeatherData.currentWeather
-  );
+  );*/
 }
 
 function generateLocationSectionValues(locationWeatherData) {

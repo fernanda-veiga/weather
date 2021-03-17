@@ -12,6 +12,7 @@ body {
 }
 
 .location {
+  background: palevioletred;
   padding: 20px;
   flex: 1 1 40%;
   display: flex;

@@ -9,10 +9,17 @@ import svgHumidity from "./icons/aplication/humidity.svg";
 import { getUnitNames } from "./toggle-btn";
 
 import { generateLocationSection } from "./dom-location-section";
+import { generateGeneralInfoSection } from "./dom-general-info-section";
 
-function generateLoader() {
+function generateAllLoaders() {
+  generateLoader(".location-weather");
+  generateLoader(".info-general-content");
+}
+
+function generateLoader(contentContainerClass) {
   //Remove all existing elements before generating the loader
-  const contentContainer = document.querySelector(".location-weather");
+  const contentContainer = document.querySelector(contentContainerClass);
+  console.log(contentContainer);
   contentContainer.innerHTML = "";
 
   //Generate loader and container
@@ -40,38 +47,6 @@ function generateInfoSection(locationWeatherData, infoWeatherData) {
   generateForecastInfoSection(infoWeatherData);
 }
 
-function generateGeneralInfoSection(locationWeatherData, infoWeatherData) {
-  const sunriseIcon = document.querySelector(".info-sunrise-icon");
-  const sunriseValue = document.querySelector(".info-sunrise-value");
-  const sunsetIcon = document.querySelector(".info-sunset-icon");
-  const sunsetValue = document.querySelector(".info-sunset-value");
-  const windIcon = document.querySelector(".info-wind-icon");
-  const windValue = document.querySelector(".info-wind-value");
-  const humidityIcon = document.querySelector(".info-humidity-icon");
-  const humidityValue = document.querySelector(".info-humidity-value");
-
-  //Get current unit
-  const speedUnit = getUnitNames()[1];
-
-  //Set icons
-  sunriseIcon.src = svgSunrise;
-  sunsetIcon.src = svgSunset;
-  windIcon.src = svgWind;
-  humidityIcon.src = svgHumidity;
-
-  //Set values
-  sunriseValue.textContent = `${infoWeatherData.sunrise}`;
-  sunsetValue.textContent = `${infoWeatherData.sunset}`;
-  windValue.textContent = `${infoWeatherData.windSpeed} ${speedUnit}`;
-  humidityValue.textContent = `${infoWeatherData.humidity}%`;
-
-  //Toggle button
-  const toggleButton = document.querySelector(".toggle-slider");
-  toggleButton.style.background = generateWeatherBackground(
-    locationWeatherData.currentWeather
-  );
-}
-
 function generateForecastInfoSection(infoWeatherData) {
   //Get current unit
   const tempUnit = getUnitNames()[0];
@@ -91,4 +66,4 @@ function generateForecastInfoSection(infoWeatherData) {
   }
 }
 
-export { generateWeatherPage, generateLoader };
+export { generateWeatherPage, generateAllLoaders };
