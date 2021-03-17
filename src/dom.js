@@ -10,10 +10,12 @@ import { getUnitNames } from "./toggle-btn";
 
 import { generateLocationSection } from "./dom-location-section";
 import { generateGeneralInfoSection } from "./dom-general-info-section";
+import { generateForecastInfoSection } from "./dom-forecast-section";
 
 function generateAllLoaders() {
   generateLoader(".location-weather");
   generateLoader(".info-general-content");
+  generateLoader(".info-forecast-content");
 }
 
 function generateLoader(contentContainerClass) {
@@ -34,10 +36,6 @@ function generateLoader(contentContainerClass) {
 }
 
 function generateWeatherPage(locationWeatherData, infoWeatherData) {
-  //Remove all existing elements before generating the loader
-  const contentContainer = document.querySelector(".location-weather");
-  contentContainer.innerHTML = "";
-
   generateLocationSection(locationWeatherData);
   generateInfoSection(locationWeatherData, infoWeatherData);
 }
@@ -45,25 +43,6 @@ function generateWeatherPage(locationWeatherData, infoWeatherData) {
 function generateInfoSection(locationWeatherData, infoWeatherData) {
   generateGeneralInfoSection(locationWeatherData, infoWeatherData);
   generateForecastInfoSection(infoWeatherData);
-}
-
-function generateForecastInfoSection(infoWeatherData) {
-  //Get current unit
-  const tempUnit = getUnitNames()[0];
-
-  for (let i = 1; i <= 5; i++) {
-    const dayNumber = `day${i}`;
-
-    const titleContainer = document.querySelector(`.info-${dayNumber}-title`);
-    const valueContainer = document.querySelector(`.info-${dayNumber}-value`);
-    const iconContainer = document.querySelector(`.info-${dayNumber}-icon`);
-
-    titleContainer.textContent = `${infoWeatherData.forecast[dayNumber].day}`.toUpperCase();
-    valueContainer.textContent = `${infoWeatherData.forecast[dayNumber].min}/${infoWeatherData.forecast[dayNumber].max}${tempUnit}`;
-    iconContainer.src = generateWeatherIcon(
-      `${infoWeatherData.forecast[dayNumber].weather}`
-    );
-  }
 }
 
 export { generateWeatherPage, generateAllLoaders };
