@@ -25,10 +25,16 @@
             class="location-search-input"
             type="text"
             placeholder="Search location here"
+            minlength="3"
+            maxlength="50"
+            pattern="^[a-zA-Z, ]*$"
           />
           <button class="location-search-button">
             <i class="fas fa-search"></i>
           </button>
+        </div>
+        <div class="input-error-div">
+          <p class="input-error"></p>
         </div>
       </div>
 
