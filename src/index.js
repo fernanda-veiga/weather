@@ -21,7 +21,16 @@ addListenerToSearchButton();
 //Add listener to toggle
 function addListenerToToggle() {
   const toggleCheckbox = document.querySelector(".toggle-checkbox");
+  const unitCelcius = document.querySelector(".celcius");
+  const unitFahrenheit = document.querySelector(".fahrenheit");
   toggleCheckbox.addEventListener("change", () => {
+    if (toggleCheckbox.checked) {
+      unitCelcius.style.color = "white";
+      unitFahrenheit.style.color = "gray";
+    } else {
+      unitCelcius.style.color = "gray";
+      unitFahrenheit.style.color = "white";
+    }
     fetchWeatherData(currentLocation);
   });
 }
