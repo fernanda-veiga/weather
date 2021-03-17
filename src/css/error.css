@@ -1,0 +1,13 @@
+.api-error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.api-error-container p {
+  font-size: 2em;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+.api-error-container img {
+  width: 30%;
+}

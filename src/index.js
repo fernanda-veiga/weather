@@ -1,6 +1,7 @@
 import "./css/style.css";
 import "./css/toggle-btn.css";
 import "./css/loader.css";
+import "./css/error.css";
 import { fetchWeatherData } from "./fetch-data";
 import { getCurrentLocation } from "./search-box";
 import { showInputError, eraseInputError } from "./input-error";

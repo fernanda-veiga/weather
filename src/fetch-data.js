@@ -1,6 +1,7 @@
 import { generateWeatherPage, generateAllLoaders } from "./dom";
 import { getUnitType } from "./toggle-btn";
 import { storeLocationWeatherData, storeInfoWeatherData } from "./store-data";
+import { displayAllErrorsOnScreen } from "./dom-error";
 
 async function fetchWeatherData(location) {
   try {
@@ -32,7 +33,7 @@ async function fetchWeatherData(location) {
     //Generate the page
     await generateWeatherPage(locationWeatherData, infoWeatherData);
   } catch (error) {
-    console.log(`There is an error: ${error}`);
+    displayAllErrorsOnScreen();
   }
 }
 

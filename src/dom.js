@@ -21,7 +21,6 @@ function generateAllLoaders() {
 function generateLoader(contentContainerClass) {
   //Remove all existing elements before generating the loader
   const contentContainer = document.querySelector(contentContainerClass);
-  console.log(contentContainer);
   contentContainer.innerHTML = "";
 
   //Generate loader and container
