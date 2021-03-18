@@ -23,7 +23,7 @@ const weatherObject = {
       background: "linear-gradient(#FF512F, #F09819)",
     },
     night: {
-      icon: iconClearDay,
+      icon: iconClearNight,
       background: "linear-gradient(#FF512F, #F09819)",
     },
   },
@@ -81,7 +81,14 @@ const weatherObject = {
   },
 };
 
-function generateWeatherIcon(currentWeather) {
+function generateWeatherIcon(currentWeather, currentTimeOfDay = "d") {
+  if (currentWeather === "Clear") {
+    if (currentTimeOfDay === "d") {
+      return weatherObject[currentWeather].day.icon;
+    } else {
+      return weatherObject[currentWeather].night.icon;
+    }
+  }
   return weatherObject[currentWeather].icon;
 }
 

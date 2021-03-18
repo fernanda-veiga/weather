@@ -175,10 +175,16 @@ body {
 }
 .info-general-content p,
 .info-forecast-content p,
+.info-general-content h5,
 .info-forecast-content h5 {
   font-family: "Poppins", sans-serif;
   color: gray;
 }
+.info-general-content p,
+.info-forecast-content p,
+.info-general-content h5 {
+  font-size: 15px;
+}
 .info-forecast-content h5 {
-  font-size: 1.1em;
+  font-size: 18px;
 }

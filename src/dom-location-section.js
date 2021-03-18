@@ -62,7 +62,10 @@ function generateLocationSectionValues(locationWeatherData) {
   const placeContainer = document.querySelector(".location-weather-place");
 
   //Generate values
-  weatherIcon.src = generateWeatherIcon(locationWeatherData.currentWeather);
+  weatherIcon.src = generateWeatherIcon(
+    locationWeatherData.currentWeather,
+    locationWeatherData.timeOfDay
+  );
   tempContainer.textContent = `${locationWeatherData.currentTemp}${tempUnit}`;
   weatherContainer.textContent = `${locationWeatherData.currentWeather}`;
   placeContainer.textContent = `${locationWeatherData.city}, ${locationWeatherData.country}`;

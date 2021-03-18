@@ -5,16 +5,15 @@ function storeLocationWeatherData(fullWeatherData) {
     city: fullWeatherData.name,
     country: fullWeatherData.sys.country,
     currentTemp: fullWeatherData.main.temp.toFixed(0),
-    feelsLike: fullWeatherData.main.feels_like,
     currentWeather: fullWeatherData.weather[0].main,
     timeOfDay: fullWeatherData.weather[0].icon.slice(-1),
   };
-  console.log(locationWeatherData);
   return locationWeatherData;
 }
 
 function storeInfoWeatherData(fullWeatherData, fullForecastData) {
   const infoWeatherData = {
+    feelsLike: fullWeatherData.main.feels_like.toFixed(0),
     sunrise: convertDateToTime(
       fullWeatherData.sys.sunrise,
       fullWeatherData.timezone
