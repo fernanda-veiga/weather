@@ -15,10 +15,11 @@
   opacity: 0;
   width: 0;
   height: 0;
+  outline: none;
 }
 
 .toggle-slider {
-  background: palevioletred;
+  background: gray;
   border-radius: 2em;
   position: absolute;
   cursor: pointer;

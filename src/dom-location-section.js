@@ -10,7 +10,6 @@ function generateLocationSection(locationWeatherData) {
   contentContainer.innerHTML = "";
 
   generateLocationSectionElements();
-  changeCurrentBackground();
   generateLocationSectionValues(locationWeatherData);
 }
 
@@ -42,13 +41,6 @@ function generateLocationSectionElements() {
   contentContainer.appendChild(iconContainer);
   contentContainer.appendChild(weatherInfoContainer);
   contentContainer.appendChild(locationInfoContainer);
-}
-
-function changeCurrentBackground(locationWeatherData) {
-  const locationSection = document.querySelector(".location");
-  /*locationSection.style.background = generateWeatherBackground(
-    locationWeatherData.currentWeather
-  );*/
 }
 
 function generateLocationSectionValues(locationWeatherData) {

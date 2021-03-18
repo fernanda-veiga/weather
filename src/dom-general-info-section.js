@@ -4,7 +4,6 @@ import svgSunset from "./icons/aplication/sunset.svg";
 import svgWind from "./icons/aplication/wind-speed.svg";
 import svgHumidity from "./icons/aplication/humidity.svg";
 import { getUnitNames } from "./toggle-btn";
-import { generateWeatherBackground } from "./weather-icons";
 
 function generateGeneralInfoSection(locationWeatherData, infoWeatherData) {
   //Remove loader before generating the section
@@ -13,12 +12,6 @@ function generateGeneralInfoSection(locationWeatherData, infoWeatherData) {
 
   generateGeneralInfoElements();
   generateGeneralInfoValues(infoWeatherData);
-
-  //Toggle button
-  /*const toggleButton = document.querySelector(".toggle-slider");
-  toggleButton.style.background = generateWeatherBackground(
-    locationWeatherData.currentWeather
-  );*/
 }
 
 function generateGeneralInfoElements() {

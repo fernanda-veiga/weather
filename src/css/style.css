@@ -8,11 +8,9 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
-  flex-wrap: wrap;
 }
 
 .location {
-  background: palevioletred;
   padding: 20px;
   flex: 1 1 40%;
   display: flex;
@@ -32,15 +30,19 @@ body {
   position: relative;
 }
 .location-search {
-  width: 50%;
-  padding: 8px;
+  width: 300px;
+  height: 30px;
+  padding: 5px 15px;
   background-color: rgba(255, 255, 255, 1);
-  border-radius: 2em;
+  border-radius: 15px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition: width 0.3s;
 }
 .location-search input {
+  width: 92%;
+  height: 100%;
   border: none;
   outline: none;
   font-size: 14px;
@@ -48,6 +50,8 @@ body {
   font-family: "Poppins", sans-serif;
 }
 .location-search button {
+  width: 8%;
+  height: 100%;
   background: none;
   border: none;
   outline: none;
@@ -98,6 +102,7 @@ body {
 }
 .location-weather-icon-container {
   justify-content: center;
+  height: 150px;
 }
 .location-weather-icon {
   height: 100%;
@@ -149,32 +154,27 @@ body {
 .info-general-content,
 .info-forecast-content {
   flex: 1 1 90%;
-  padding: 20px;
+  padding: 20px 0;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
 .info-general-content > *,
 .info-forecast-content > * {
-  flex-basis: 100%;
+  flex: 1 1 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
-/*.info-forecast-content > * {
-  border: 2px solid gray;
-  border-radius: 5px;
-  box-shadow: 0 0 5px gray;
-}*/
 .info-general-content img,
 .info-forecast-content img {
-  width: 50%;
+  width: 80px;
   height: auto;
 }
-/*.info-forecast-content img {
-  filter: invert(50%);
-}*/
 .info-general-content p,
 .info-forecast-content p,
 .info-general-content h5,
@@ -189,4 +189,38 @@ body {
 }
 .info-forecast-content h5 {
   font-size: 18px;
+}
+
+/*RESPONSIVENESS*/
+@media (max-width: 1000px) {
+  body {
+    flex-direction: column;
+  }
+  .location-weather-icon-container,
+  .location-weather-temp-container,
+  .location-weather-info-container {
+    transform: scale(0.8);
+  }
+  .info h2 {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 600px) {
+  .info-general-content img,
+  .info-forecast-content img {
+    width: 70px;
+  }
+  .info-general-content p,
+  .info-forecast-content p,
+  .info-general-content h5,
+  .info-forecast-content h5 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .location-search {
+    width: 200px;
+  }
 }
