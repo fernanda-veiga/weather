@@ -37,56 +37,6 @@ function generateGeneralInfoElements() {
     const contentContainer = document.querySelector(".info-general-content");
     contentContainer.appendChild(container);
   }
-
-  /*const feelsLikeContainer = document.createElement("div");
-  const feelsLikeIcon = document.createElement("img");
-  const feelsLikeText = document.createElement("p");
-  feelsLikeContainer.appendChild(feelsLikeIcon);
-  feelsLikeContainer.appendChild(feelsLikeText);
-
-  const sunriseContainer = document.createElement("div");
-  sunriseContainer.classList.add("info-sunrise-container");
-  const sunriseIcon = document.createElement("img");
-  sunriseIcon.classList.add("info-sunrise-icon");
-  const sunriseText = document.createElement("p");
-  sunriseText.classList.add("info-sunrise-value");
-  sunriseContainer.appendChild(sunriseIcon);
-  sunriseContainer.appendChild(sunriseText);
-
-  const sunsetContainer = document.createElement("div");
-  sunsetContainer.classList.add("info-sunset-container");
-  const sunsetIcon = document.createElement("img");
-  sunsetIcon.classList.add("info-sunset-icon");
-  const sunsetText = document.createElement("p");
-  sunsetText.classList.add("info-sunset-value");
-  sunsetContainer.appendChild(sunsetIcon);
-  sunsetContainer.appendChild(sunsetText);
-
-  const windContainer = document.createElement("div");
-  windContainer.classList.add("info-wind-container");
-  const windIcon = document.createElement("img");
-  windIcon.classList.add("info-wind-icon");
-  const windText = document.createElement("p");
-  windText.classList.add("info-wind-value");
-  windContainer.appendChild(windIcon);
-  windContainer.appendChild(windText);
-
-  const humidityContainer = document.createElement("div");
-  humidityContainer.classList.add("info-humidity-container");
-  const humidityIcon = document.createElement("img");
-  humidityIcon.classList.add("info-humidity-icon");
-  const humidityText = document.createElement("p");
-  humidityText.classList.add("info-humidity-value");
-  humidityContainer.appendChild(humidityIcon);
-  humidityContainer.appendChild(humidityText);
-
-  //Append elements to container
-  const contentContainer = document.querySelector(".info-general-content");
-  contentContainer.appendChild(feelsLikeContainer);
-  contentContainer.appendChild(sunriseContainer);
-  contentContainer.appendChild(sunsetContainer);
-  contentContainer.appendChild(windContainer);
-  contentContainer.appendChild(humidityContainer);*/
 }
 
 function generateGeneralInfoValues(infoWeatherData) {

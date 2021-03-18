@@ -24,14 +24,14 @@ async function fetchWeatherData(location) {
     const fullForecastData = await fetchedForecastWeatherData.json();
 
     //Store data
-    const locationWeatherData = await storeLocationWeatherData(fullWeatherData);
-    const infoWeatherData = await storeInfoWeatherData(
+    const locationWeatherData = storeLocationWeatherData(fullWeatherData);
+    const infoWeatherData = storeInfoWeatherData(
       fullWeatherData,
       fullForecastData
     );
 
     //Generate the page
-    await generateWeatherPage(locationWeatherData, infoWeatherData);
+    generateWeatherPage(locationWeatherData, infoWeatherData);
   } catch (error) {
     displayAllErrors();
   }

@@ -102,6 +102,8 @@ body {
 .location-weather-icon {
   height: 100%;
   width: auto;
+  filter: invert(99%) sepia(1%) saturate(2%) hue-rotate(218deg) brightness(112%)
+    contrast(100%);
 }
 .location-weather-temp-container {
   justify-content: center;
@@ -170,9 +172,9 @@ body {
   width: 50%;
   height: auto;
 }
-.info-forecast-content img {
+/*.info-forecast-content img {
   filter: invert(50%);
-}
+}*/
 .info-general-content p,
 .info-forecast-content p,
 .info-general-content h5,
