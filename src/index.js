@@ -6,7 +6,7 @@ import { fetchWeatherData } from "./fetch-data";
 import { getCurrentLocation } from "./search-box";
 import { showInputError, eraseInputError } from "./input-error";
 
-let currentLocation = "Cairo";
+let currentLocation = "London";
 fetchWeatherData(currentLocation);
 
 //Add listener to search box
