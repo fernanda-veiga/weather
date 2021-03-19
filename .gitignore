@@ -1,4 +1,4 @@
 node_modules
 src/api-key.js
 dist/*.svg
-dist/*.js
+dist/bundle.js
