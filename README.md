@@ -24,7 +24,7 @@ Live version [here](https://fernanda-veiga.github.io/weather/)
 
 ![](project-demo.PNG)
 
-##How to use
+## How to use
 To use the website, click [here](https://fernanda-veiga.github.io/weather/).
 
 To use the code, download all files and put them in the same directory. Inside the `/src` directory, create a new file called `api-key.js`. Inside this file, write the following code and write your own API key on the designated place:
