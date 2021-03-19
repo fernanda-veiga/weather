@@ -23,3 +23,21 @@ The user can search for a location by city name and fetch the location's current
 Live version [here](https://fernanda-veiga.github.io/weather/)
 
 ![](project-demo.PNG)
+
+##How to use
+To use the website, click [here](https://fernanda-veiga.github.io/weather/).
+
+To use the code, download all files and put them in the same directory. Inside the `/src` directory, create a new file called `api-key.js`. Inside this file, write the following code and write your own API key on the designated place:
+
+```javascript
+function generateAPIKey() {
+  const API_KEY = "<your-API-key-goes-here>";
+  return API_KEY;
+}
+
+export { generateAPIKey };
+```
+
+On the terminal, on the directory the files were downloaded to, install Webpack and date-fns by running `npm install webpack webpack-cli --save-dev` and `npm install date-fns --save`.
+
+Run Webpack to create the paths and the bundle by running `npm run build`.
