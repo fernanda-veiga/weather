@@ -2,10 +2,11 @@ import { generateWeatherPage, generateAllLoaders } from "./dom";
 import { getUnitType } from "./toggle-btn";
 import { storeLocationWeatherData, storeInfoWeatherData } from "./store-data";
 import { displayAllErrors } from "./dom-error";
+import { generateAPIKey } from "./api-key";
 
 async function fetchWeatherData(location) {
   try {
-    const API_KEY = "d3bb1e3bed4381c130b23c941a594404";
+    const API_KEY = generateAPIKey();
     const unit = getUnitType();
     generateAllLoaders();
 
